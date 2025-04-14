@@ -1224,302 +1224,308 @@ section,
 /*--------------------------------------------------------------
 # Certificate Section
 --------------------------------------------------------------*/
-.certificate-badge {
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.certificate-badge:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-}
-
-/* Certificates Section Styles */
 .certificates {
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-top: 80px;
+	padding-bottom: 80px;
+	background-color: var(--background-color, #f8f9fa);
+	color: var(--default-color, #212529);
+}
+
+.certificates .section-title h2 {
+	color: var(--heading-color, #1a1a1a);
+	font-size: 2.5 rem;
+	margin-bottom: 0.5rem;
+}
+
+.certificates .section-lead-text {
+	font-size: 1.2rem;
+	color: var(--secondary-text-color, #6c757d);
+}
+
+/* Card Styling */
+.card {
+	background-color: var(--surface-color, #ffffff);
+	border: none;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	border-radius: 16px;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Icons and Headers */
+.icon-lg {
+	width: 48px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+}
+
+.bg-warning.bg-opacity-10 {
+	background-color: rgba(255, 193, 7, 0.1);
+}
+.bg-primary.bg-opacity-10 {
+	background-color: rgba(13, 110, 253, 0.1);
+}
+.bg-success.bg-opacity-10 {
+	background-color: rgba(40, 167, 69, 0.1);
+}
+.bg-info.bg-opacity-10 {
+	background-color: rgba(13, 202, 240, 0.1);
+}
+
+/* Achievements */
+.achievement-item {
+	background-color: rgba(255, 193, 7, 0.1);
+	transition: background-color 0.2s ease;
+}
+
+.achievement-item:hover {
+	background-color: rgba(255, 193, 7, 0.15);
+}
+
+/* Certifications and Skills */
+.border-primary,
+.border-warning,
+.border-success,
+.border-info {
+	border-width: 2px !important;
+	transition: border-color 0.2s ease;
+}
+
+.border-primary:hover {
+	border-color: #0a58ca !important;
+}
+.border-warning:hover {
+	border-color: #ffca2c !important;
+}
+.border-success:hover {
+	border-color: #218838 !important;
+}
+.border-info:hover {
+	border-color: #17a2b8 !important;
+}
+
+.badge.bg-primary {
+	background-color: #0d6efd !important;
+	color: #ffffff !important;
+}
+.badge.bg-warning {
+	background-color: #ffc107 !important;
+	color: #212529 !important;
+}
+.badge.bg-success {
+	background-color: #28a745 !important;
+	color: #ffffff !important;
+}
+.badge.bg-info {
+	background-color: #13caf0 !important;
+	color: #ffffff !important;
+}
+
+.stretched-link::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+}
+
+/* Buttons */
+.btn-outline-primary {
+	border-radius: 50px;
+	padding: 0.5rem 1.5rem;
+	font-size: 0.875rem;
+	border-color: #0d6efd;
+	color: #0d6efd;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-primary:hover {
+	background-color: #0d6efd;
+	color: #ffffff;
+}
+
+/* Text Defaults */
+.text-default {
+	color: var(--default-color, #212529);
+}
+
+.text-secondary {
+	color: var(--secondary-text-color, #6c757d);
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+	--default-color: #212529;
+	--secondary-text-color: #6c757d;
+	--heading-color: #1a1a1a;
+	--background-color: #f8f9fa;
+	--surface-color: #ffffff;
+}
+
+[data-theme="light"] .text-warning {
+	color: #ffc107 !important;
+}
+
+[data-theme="light"] .text-primary {
+	color: #0d6efd !important;
+}
+
+[data-theme="light"] .text-success {
+	color: #28a745 !important;
+}
+
+[data-theme="light"] .badge.bg-info {
+	background-color: #4bdcf5 !important;
+	color: #f1f4f8 !important;
+}
+
+[data-theme="light"] .badge.bg-primary.text-primary {
+	color: #ffffff !important;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+	--default-color: #f8f9fa;
+	--secondary-text-color: #adb5bd;
+	--heading-color: #ffffff;
+	--background-color: #1a2533;
+	--surface-color: #263246;
+}
+
+[data-theme="dark"] .certificates {
 	background-color: var(--background-color);
 	color: var(--default-color);
 }
 
-.certificates .section-title h2,
-.certificates .section-title p {
-	color: var(--heading-color);
-}
-
-/* General Card Styling (Reused) */
-.achievement-card,
-.certification-card,
-.extracurricular-card {
+[data-theme="dark"] .card {
 	background-color: var(--surface-color);
-	border: 1px solid color-mix(in srgb, var(--default-color), transparent 15%);
-	box-shadow: var(--box-shadow-sm, 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075));
-	transition: box-shadow 0.3s ease-in-out;
+	box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
 }
 
-.achievement-card:hover,
-.certification-card:hover,
-.extracurricular-card:hover {
-	box-shadow: var(--box-shadow, 0 0.5rem 1rem rgba(0, 0, 0, 0.15));
+[data-theme="dark"] .card:hover {
+	box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
 }
 
-/* Icons */
-.achievement-icon i,
-.certification-icon i,
-.extracurricular-icon i {
-	/* Icon colors are often specific, but you could try a variable if consistent */
-}
-
-/* Titles */
-.achievement-title,
-.certification-title,
-.extracurricular-title {
+[data-theme="dark"] .section-title h2 {
 	color: var(--heading-color);
 }
 
-/* List Items and Text */
-.achievement-list li div strong,
-.certification-badges .certificate-name,
-.extracurricular-activity strong {
-	color: var(--default-color); /* Ensure strong text is themed */
+[data-theme="dark"] .section-lead-text,
+[data-theme="dark"] .text-secondary {
+	color: var(--secondary-text-color);
 }
 
-.achievement-meta,
-.certification-subtitle,
-.certification-badges .certificate-meta,
-.extracurricular-activity-meta {
-	color: var(--secondary-text-color, #6c757d); /* Themed muted text */
-}
-
-.certificate-level {
-	/* Badge colors are often specific, but you could use variables */
-}
-
-.certificate-link i,
-.certificate-profile-link i {
-	color: var(--secondary-text-color, #6c757d);
-}
-
-.certificate-link:hover i,
-.certificate-profile-link:hover i {
-	color: var(--link-color, #007bff);
-}
-
-/* Dark Mode Overrides for Certificates Section */
-[data-theme="dark"] .achievement-card,
-[data-theme="dark"] .certification-card,
-[data-theme="dark"] .extracurricular-card {
-	background-color: var(--dark-surface-color, #151f2b);
-	border-color: color-mix(
-		in srgb,
-		var(--default-color-dark, #f8f9fa),
-		transparent 15%
-	);
-	box-shadow: var(
-		--box-shadow-dark-sm,
-		0 0.125rem 0.25rem rgba(255, 255, 255, 0.075)
-	);
-}
-
-[data-theme="dark"] .achievement-card:hover,
-[data-theme="dark"] .certification-card:hover,
-[data-theme="dark"] .extracurricular-card:hover {
-	box-shadow: var(--box-shadow-dark, 0 0.5rem 1rem rgba(255, 255, 255, 0.15));
-}
-
-[data-theme="dark"] .achievement-title,
-[data-theme="dark"] .certification-title,
-[data-theme="dark"] .extracurricular-title {
-	color: var(--heading-color-dark, #ffffff);
-}
-
-[data-theme="dark"] .achievement-list li div strong,
-[data-theme="dark"] .certification-badges .certificate-name,
-[data-theme="dark"] .extracurricular-activity strong {
-	color: var(--default-color-dark, #f8f9fa);
-}
-
-[data-theme="dark"] .achievement-meta,
-[data-theme="dark"] .certification-subtitle,
-[data-theme="dark"] .certification-badges .certificate-meta,
-[data-theme="dark"] .extracurricular-activity-meta {
-	color: var(--secondary-text-color-dark, #adb5bd);
-}
-
-[data-theme="dark"] .certificate-link i,
-[data-theme="dark"] .certificate-profile-link i {
-	color: var(--secondary-text-color-dark, #adb5bd);
-}
-
-[data-theme="dark"] .certificate-link:hover i,
-[data-theme="dark"] .certificate-profile-link:hover i {
-	color: var(--link-color-dark, #66b3ff);
-} /* Certificates Section Styles */
-.certificates {
-	padding-top: 60px;
-	padding-bottom: 60px;
-	background-color: var(--background-color);
+[data-theme="dark"] .text-default,
+[data-theme="dark"] .h4 {
 	color: var(--default-color);
 }
 
-.certificates .section-title h2,
-.certificates .section-title p {
-	color: var(--heading-color);
+[data-theme="dark"] .bg-warning.bg-opacity-10,
+[data-theme="dark"] .achievement-item {
+	background-color: rgba(255, 193, 7, 0.2);
 }
 
-/* General Card Styling (Reused) */
-.achievement-card,
-.certification-card,
-.extracurricular-card {
-	background-color: var(--surface-color);
-	border: 1px solid color-mix(in srgb, var(--default-color), transparent 15%);
-	box-shadow: var(--box-shadow-sm, 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075));
-	transition: box-shadow 0.3s ease-in-out;
+[data-theme="dark"] .achievement-item:hover {
+	background-color: rgba(255, 193, 7, 0.3);
 }
 
-.achievement-card:hover,
-.certification-card:hover,
-.extracurricular-card:hover {
-	box-shadow: var(--box-shadow, 0 0.5rem 1rem rgba(0, 0, 0, 0.15));
+[data-theme="dark"] .bg-primary.bg-opacity-10 {
+	background-color: rgba(13, 110, 253, 0.2);
 }
 
-/* Icons */
-.achievement-icon i,
-.certification-icon i,
-.extracurricular-icon i {
-	/* Icon colors are often specific, but you could try a variable if consistent */
+[data-theme="dark"] .bg-success.bg-opacity-10 {
+	background-color: rgba(40, 167, 69, 0.2);
 }
 
-/* Titles */
-.achievement-title,
-.certification-title,
-.extracurricular-title {
-	color: var(--heading-color);
+[data-theme="dark"] .bg-info.bg-opacity-10 {
+	background-color: rgba(13, 202, 240, 0.2);
 }
 
-/* List Items and Text */
-.achievement-list li div strong,
-.certification-badges .certificate-name,
-.extracurricular-activity strong {
-	color: var(--default-color); /* Ensure strong text is themed */
+[data-theme="dark"] .text-warning {
+	color: #ffda4c !important;
 }
 
-.achievement-meta,
-.certification-subtitle,
-.certification-badges .certificate-meta,
-.extracurricular-activity-meta {
-	color: var(--secondary-text-color, #6c757d); /* Themed muted text */
+[data-theme="dark"] .text-primary {
+	color: #4b8ef7 !important;
 }
 
-.certificate-level {
-	/* Badge colors are often specific, but you could use variables */
+[data-theme="dark"] .text-success {
+	color: #4bd671 !important;
 }
 
-.certificate-link i,
-.certificate-profile-link i {
-	color: var(--secondary-text-color, #6c757d);
+[data-theme="dark"] .text-info {
+	color: #4bdcf5 !important;
 }
 
-.certificate-link:hover i,
-.certificate-profile-link:hover i {
-	color: var(--link-color, #007bff);
+[data-theme="dark"] .badge.bg-primary {
+	background-color: #4b8ef7 !important;
+	color: #1a2533 !important;
 }
 
-/* Dark Mode Overrides for Certificates Section */
-[data-theme="dark"] .achievement-card,
-[data-theme="dark"] .certification-card,
-[data-theme="dark"] .extracurricular-card {
-	background-color: var(--dark-surface-color, #151f2b);
-	border-color: color-mix(
-		in srgb,
-		var(--default-color-dark, #f8f9fa),
-		transparent 15%
-	);
-	box-shadow: var(
-		--box-shadow-dark-sm,
-		0 0.125rem 0.25rem rgba(255, 255, 255, 0.075)
-	);
+[data-theme="dark"] .badge.bg-warning {
+	background-color: #ffda4c !important;
+	color: #1a2533 !important;
 }
 
-[data-theme="dark"] .achievement-card:hover,
-[data-theme="dark"] .certification-card:hover,
-[data-theme="dark"] .extracurricular-card:hover {
-	box-shadow: var(--box-shadow-dark, 0 0.5rem 1rem rgba(255, 255, 255, 0.15));
+[data-theme="dark"] .badge.bg-success {
+	background-color: #4bd671 !important;
+	color: #1a2533 !important;
 }
 
-[data-theme="dark"] .achievement-title,
-[data-theme="dark"] .certification-title,
-[data-theme="dark"] .extracurricular-title {
-	color: var(--heading-color-dark, #ffffff);
+[data-theme="dark"] .badge.bg-info {
+	background-color: #4bdcf5 !important;
+	color: #1a2533 !important;
 }
 
-[data-theme="dark"] .achievement-list li div strong,
-[data-theme="dark"] .certification-badges .certificate-name,
-[data-theme="dark"] .extracurricular-activity strong {
-	color: var(--default-color-dark, #f8f9fa);
+[data-theme="dark"] .btn-outline-primary {
+	border-color: #4b8ef7;
+	color: #4b8ef7;
 }
 
-[data-theme="dark"] .achievement-meta,
-[data-theme="dark"] .certification-subtitle,
-[data-theme="dark"] .certification-badges .certificate-meta,
-[data-theme="dark"] .extracurricular-activity-meta {
-	color: var(--secondary-text-color-dark, #adb5bd);
+[data-theme="dark"] .btn-outline-primary:hover {
+	background-color: #4b8ef7;
+	color: #1a2533;
 }
 
-[data-theme="dark"] .certificate-link i,
-[data-theme="dark"] .achievement-meta,
-[data-theme="dark"] .certificate-profile-link i {
-	color: var(--secondary-text-color-dark, #adb5bd);
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+	.certificates {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
 
-[data-theme="dark"] .certificate-link:hover i,
-[data-theme="dark"] .certificate-profile-link:hover i {
-	color: var(--link-color-dark, #66b3ff);
-}
-/* Certificates Section Styles (add or modify) */
-/* ... other certificate styles ... */
+	.card {
+		margin-bottom: 1.5rem;
+	}
 
-.certificate-profile-link {
-	color: var(--default-color); /* Use default text color */
-	border-color: color-mix(
-		in srgb,
-		var(--default-color),
-		transparent 50%
-	); /* Themed border */
-}
+	.row.g-3 .col-md-6 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
 
-.certificate-profile-link:hover {
-	background-color: color-mix(
-		in srgb,
-		var(--accent-color),
-		transparent 90%
-	); /* Subtle hover background */
-	border-color: var(--accent-color);
-	color: var(--accent-color); /* Text color on hover */
-}
+	.section-title h2 {
+		font-size: 2rem;
+	}
 
-/* Dark Mode Overrides for Certificates Section (add or modify) */
-[data-theme="dark"] .certificate-profile-link {
-	color: var(--default-color-dark, #f8f9fa); /* Light text in dark mode */
-	border-color: color-mix(
-		in srgb,
-		var(--default-color-dark, #f8f9fa),
-		transparent 50%
-	); /* Light border */
-}
+	.section-lead-text {
+		font-size: 1rem;
+	}
 
-[data-theme="dark"] .certificate-profile-link:hover {
-	background-color: color-mix(
-		in srgb,
-		var(--accent-color-dark, #66b3ff),
-		transparent 90%
-	); /* Subtle dark mode hover bg */
-	border-color: var(--accent-color-dark, #66b3ff);
-	color: var(
-		--accent-color-dark,
-		#66b3ff
-	); /* Text color on hover in dark mode */
+	.icon-lg {
+		width: 40px;
+		height: 40px;
+		font-size: 1.25rem;
+	}
 }
-
 /*--------------------------------------------------------------
 # Why Hire Me Section
 --------------------------------------------------------------*/
